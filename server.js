@@ -19,5 +19,5 @@ app.get('/review', (req, res) => {
 })
 
 app.get('/user', (req, res) => {
-    res.send('user test')
-})
+    res.send(' user test')
+}) 
