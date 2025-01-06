@@ -1,5 +1,5 @@
 import express from 'express';
-//import {pgPool} from './pg_connection.js'
+import {pgPool} from './pg_connection.js'
 
 const app = express();
 app.use(express.urlencoded({extended: true}));
@@ -16,8 +16,13 @@ try {
 }
 
 
-app.get('/movie', (req, res) => {
-    res.send('Movie test')
+app.get('/movie', async (req, res) => {
+    try {
+        const result = await pgPool.query('SELECT * FROM movie')
+        res.json(result.rows)
+    }catch(error){
+        res.status(400).json({error: error.message})
+    }
 })
 
 app.get('/genre', (req, res) => {
@@ -28,7 +33,12 @@ app.get('/review', (req, res) => {
     res.send('review test')
 })
 
-app.get('/user', (req, res) => {
-   res.send('user test')
+app.get('/users', async (req, res) => {
+   try {
+        const result = await pgPool.query('SELECT * FROM users')
+        res.json(result.rows)
+   } catch (error) {
+        res.status(400).json({error: error.message})
+   }
 })
 
