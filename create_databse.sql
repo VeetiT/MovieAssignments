@@ -40,3 +40,18 @@ INSERT INTO users (first_name, last_name, username, user_password, birthday) VAL
 ('Anakin', 'Skywalker', 'aaanakin', 'salasana', '1980-11-02'),
 ('Darth', 'Vader', 'Darthhh', 'salasana1', '1935-02-22'),
 ('Baby', 'Yoda', 'Groku', 'salasana2', '2013-07-03')
+
+INSERT INTO genre (genre_name) VALUES
+('Horror'),
+('Action'),
+('Animation'),
+('Crime'),
+('Fantasy'),
+('Sports'),
+('Comedy')
+
+
+
+
+
+
