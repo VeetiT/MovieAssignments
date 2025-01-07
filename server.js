@@ -75,3 +75,34 @@ app.post('/genres', async(req, res)=>{
     }
 })
 
+app.post('/movie', async(req, res) => {
+    const moviename = req.body.movie_name
+    const year = req.body.movie_year
+    const genre = req.body.genre_id
+
+    try {
+        await pgPool.query(
+            'INSERT INTO movie (movie_name, movie_year, genre_id) VALUES ($1, $2, $3)',
+            [moviename, year, genre]
+        )
+    } catch (error) {
+        res.status(400).json({error: error.message})
+    }
+})
+
+app.delete('/movie:id', async(req, res) => {
+    const movieid = req.params.id
+
+    try {
+        await pgPool.query(
+            'DELETE FROM movie WHERE movie_id = $1',
+            [movieid]
+        )
+        res.status(200).json({message: 'Movie deleted'})
+    } catch (error) {
+        res.status(400).json({error: error.message})
+    }
+})
+
+
+

@@ -34,7 +34,9 @@ CREATE Table users(
 INSERT INTO movie (movie_name, movie_year) VALUES
 ('Star Wars: The Last Jedi', 2017),
 ('Star Wars: Episode III – Revenge of the Sith', 2005),
-('Return of the Jedi', 1983)
+('Return of the Jedi', 1983),
+('The Empire Strikes Back', 1980),
+('Star Wars: Episode IV - A New Hope', 1977)
 
 INSERT INTO users (first_name, last_name, username, user_password, birthday) VALUES
 ('Anakin', 'Skywalker', 'aaanakin', 'salasana', '1980-11-02'),
